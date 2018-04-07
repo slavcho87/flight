@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class PropertiesHandler {
 
-	@Value("${user}")
-    private String user;
-
-	public String getUser() {
-		return user;
-	}
+//	@Value("${user}")
+//    private String user;
+//
+//	public String getUser() {
+//		return user;
+//	}
 	
 	
 	

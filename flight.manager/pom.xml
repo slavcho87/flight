@@ -34,6 +34,16 @@
 	    <artifactId>spring-cloud-starter-config</artifactId>
 	    <version>${spring-cloud-config-starter.version}</version>
 	</dependency>
+   		<dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>6.0.6</version>
+	</dependency>
+    <dependency>
+        <groupId>org.liquibase</groupId>
+        <artifactId>liquibase-core</artifactId>
+        <version>3.6.0</version>
+	</dependency>
   </dependencies>
   <build>
 	<finalName>flight.manager</finalName>
