@@ -1,13 +1,13 @@
 package com.flight.analist.ai;
 
-import com.flight.analist.city.model.City;
 import com.flight.analist.itinerary.model.Itinerary;
 import com.flight.analist.itinerary.service.ItineraryService;
 import com.flight.analist.itinerary.service.ItineraryServiceImpl;
+
 import aima.core.agent.Action;
 import aima.core.search.framework.problem.ResultFunction;
 
-public class CityResultFunction implements ResultFunction {
+public class StateResultFunction implements ResultFunction {
 
 	private ItineraryService itineraryService = new ItineraryServiceImpl();
 	
@@ -17,10 +17,12 @@ public class CityResultFunction implements ResultFunction {
 		
 		Itinerary itinerary = itineraryService.getById(action.getCityName(), action.getFlightId());
 		
-		City city = new City();
-		city.setName(itinerary.getDestination());
-		
-		return city;
+		State state = new State();
+		state.setCity(itinerary.getDestination());
+		state.setArrival(itinerary.getArrival().getTime());
+		state.setFlightId(itinerary.getFlightId());
+				
+		return state;
 	}
 
 }

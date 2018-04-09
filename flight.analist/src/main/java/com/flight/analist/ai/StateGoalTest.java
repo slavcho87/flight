@@ -1,0 +1,19 @@
+package com.flight.analist.ai;
+
+import aima.core.search.framework.problem.GoalTest;
+
+public class StateGoalTest implements GoalTest {
+
+	private State destination;
+	
+	public StateGoalTest(State destination) {
+		this.destination= destination;
+	}
+	
+	@Override
+	public boolean isGoalState(Object obj) {
+		State state = (State) obj;
+		return destination.getCity().equals(state.getCity());
+	}
+
+}

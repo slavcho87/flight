@@ -1,20 +1,15 @@
 package com.flight.analist.ai;
 
-import com.flight.analist.city.model.City;
-
 import aima.core.search.framework.evalfunc.HeuristicFunction;
 
 public class TimeHeuristicFuntion implements HeuristicFunction {
-
-	private City origin;
 	
-	public TimeHeuristicFuntion(City origin) {
-		this.origin = origin;
-	}
+	public TimeHeuristicFuntion() {}
 	
 	@Override
-	public double h(Object state) {
-		return 0;
+	public double h(Object obj) {
+		State state = (State) obj;
+ 		return state.getArrival();
 	}
 
 }
