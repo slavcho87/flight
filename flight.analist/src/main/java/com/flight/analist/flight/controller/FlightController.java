@@ -17,8 +17,11 @@ import com.flight.analist.itinerary.mapper.ItineraryMapper;
 import com.flight.analist.itinerary.model.Itinerary;
 import com.flight.analist.itinerary.model.dto.ItineraryDTO;
 import com.flight.analist.itinerary.model.dto.ItineraryListDTO;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 
 @RestController
+@Api(value="Flight Controller")
 public class FlightController {
 
 	@Autowired
@@ -27,6 +30,7 @@ public class FlightController {
 	@Autowired
 	private ItineraryMapper mapper;
 	
+	@ApiOperation(value = "Fastest way to fly from one city to another", response = ItineraryListDTO.class)
 	@RequestMapping(value = "/api/flight", params = {"action=fastestWay"}, method = RequestMethod.GET)
 	public ResponseEntity<ItineraryListDTO> getFastestWay(@RequestParam (value = "origin", required = true) String origin, @RequestParam(value = "destination", required = true) String destination) throws OriginCityNotFound, DestinationCityNotFound, OriginDestinationEqualsException, Exception {		
 		List<Itinerary> itineraries = flightService.getFastestWay(origin, destination);

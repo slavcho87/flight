@@ -17,7 +17,11 @@ import com.flight.manager.city.model.dto.CityDTO;
 import com.flight.manager.city.model.dto.CityList;
 import com.flight.manager.city.service.CityService;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+
 @RestController
+@Api(value="City Controller")
 public class CityController {
 
 	@Autowired
@@ -26,6 +30,7 @@ public class CityController {
 	@Autowired
 	private CityMapper cityMapper;
 	
+	@ApiOperation(value = "Get a list with all cities. It could be paginable or not.", response = CityList.class)
 	@RequestMapping(value = "/api/city", method = RequestMethod.GET)
 	public ResponseEntity<CityList> findAll() {
 		List<CityDTO> cities = cityMapper.domainToDTO(cityService.findAll());
