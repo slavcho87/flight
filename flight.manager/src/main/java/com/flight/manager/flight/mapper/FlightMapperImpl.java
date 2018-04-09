@@ -22,6 +22,7 @@ public class FlightMapperImpl implements FlightMapper{
 			Flight flight = iterator.next();
 			
 			FlightDTO flightDTO = new FlightDTO();
+			flightDTO.setFlightId(flight.getId());
 			flightDTO.setDestination(flight.getArrivalCity().getName());
 			flightDTO.setDeparture(flight.getDepartureTime().getTime());			
 			flightDTO.setArrival(flight.getArrivalTime().getTime());
@@ -30,5 +31,15 @@ public class FlightMapperImpl implements FlightMapper{
 		}
 		
 		return response;
+	}
+	
+	public FlightDTO domainToDTO(Flight flight) {
+		FlightDTO flightDTO = new FlightDTO();
+		flightDTO.setFlightId(flight.getId());
+		flightDTO.setDestination(flight.getArrivalCity().getName());
+		flightDTO.setDeparture(flight.getDepartureTime().getTime());			
+		flightDTO.setArrival(flight.getArrivalTime().getTime());
+		
+		return flightDTO;
 	}
 }

@@ -1,7 +1,9 @@
 package com.flight.manager.flight.model.dto;
 
 public class FlightDTO {
-
+	
+	private Integer flightId;
+	
 	private String destination;
 	
 	private Long departure;
@@ -30,6 +32,14 @@ public class FlightDTO {
 
 	public void setArrival(Long arrival) {
 		this.arrival = arrival;
+	}
+
+	public Integer getFlightId() {
+		return flightId;
+	}
+
+	public void setFlightId(Integer flightId) {
+		this.flightId = flightId;
 	}
 	
 }

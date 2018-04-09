@@ -8,5 +8,6 @@
   <modules>
     <module>flight.manager</module>
     <module>flight.configuration</module>
+    <module>flight.analist</module>
   </modules>
 </project>

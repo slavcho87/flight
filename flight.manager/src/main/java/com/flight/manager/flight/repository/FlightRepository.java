@@ -9,4 +9,6 @@ public interface FlightRepository extends PagingAndSortingRepository<Flight, Int
 	
 	public List<Flight> findByDepartureCityId(Integer id);
 	
+	public Flight findByIdAndDepartureCityId(Integer id, Integer departureCityId);
+	
 }

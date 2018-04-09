@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 import com.flight.manager.city.exception.CityNotFoundException;
 import com.flight.manager.exception.ApiException;
+import com.flight.manager.flight.exception.FlightNotFound;
 
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @ControllerAdvice
@@ -18,6 +19,16 @@ public class RestException extends ResponseEntityExceptionHandler {
 
 	@ExceptionHandler(CityNotFoundException.class)
 	protected ResponseEntity<ApiException> cityNotFoundException(CityNotFoundException ex){
+		ApiException apiError = new ApiException();
+		apiError.setStatus(HttpStatus.NOT_FOUND);
+		apiError.setTimestamp(new Date().getTime());
+		apiError.setMessage(ex.getMessage());
+		
+		return new ResponseEntity<ApiException>(apiError, HttpStatus.NOT_FOUND);
+	}
+	
+	@ExceptionHandler(FlightNotFound.class)
+	protected ResponseEntity<ApiException> flightNotFoundException(FlightNotFound ex){
 		ApiException apiError = new ApiException();
 		apiError.setStatus(HttpStatus.NOT_FOUND);
 		apiError.setTimestamp(new Date().getTime());

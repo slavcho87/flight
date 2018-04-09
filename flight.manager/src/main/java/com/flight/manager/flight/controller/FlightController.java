@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.flight.manager.city.exception.CityNotFoundException;
+import com.flight.manager.flight.exception.FlightNotFound;
 import com.flight.manager.flight.mapper.FlightMapper;
 import com.flight.manager.flight.model.dto.FlightDTO;
 import com.flight.manager.flight.model.dto.FlightList;
@@ -34,4 +35,11 @@ public class FlightController {
 		
 		return new ResponseEntity<FlightList>(response, HttpStatus.OK);
 	}
+	
+	@RequestMapping(value = "/api/city/{cityName}/flight/{flightId}", method = RequestMethod.GET)
+	public ResponseEntity<FlightDTO> findOne(@PathVariable("cityName") String cityName, @PathVariable("flightId") Integer flightId) throws CityNotFoundException, FlightNotFound{
+		FlightDTO flightDTO = flightMapper.domainToDTO(flightService.findOne(cityName, flightId));
+		return new ResponseEntity<FlightDTO>(flightDTO, HttpStatus.OK);
+	}
+	
 }

@@ -8,5 +8,6 @@ import com.flight.manager.flight.model.dto.FlightDTO;
 public interface FlightMapper {
 
 	public List<FlightDTO> domainToDTO(List<Flight> flights);
+	public FlightDTO domainToDTO(Flight flight);
 	
 }

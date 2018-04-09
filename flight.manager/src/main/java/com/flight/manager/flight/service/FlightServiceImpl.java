@@ -9,8 +9,10 @@ import org.springframework.stereotype.Service;
 import com.flight.manager.city.exception.CityNotFoundException;
 import com.flight.manager.city.model.City;
 import com.flight.manager.city.service.CityService;
+import com.flight.manager.flight.exception.FlightNotFound;
 import com.flight.manager.flight.model.Flight;
 import com.flight.manager.flight.repository.FlightRepository;
+import com.flight.manager.utils.Constants;
 
 @Service
 public class FlightServiceImpl implements FlightService {
@@ -30,6 +32,17 @@ public class FlightServiceImpl implements FlightService {
 		}
 		
 		return flights;
+	}
+	
+	public Flight findOne(String cityName, Integer id) throws CityNotFoundException, FlightNotFound {
+		City city = cityService.findOneByName(cityName);
+		Flight flight = flightRepository.findByIdAndDepartureCityId(id, city.getId());
+		
+		if(flight == null) {
+			throw new FlightNotFound(Constants.FLIGHT_ID_NOT_FOUND);
+		}
+		
+		return flight;		
 	}
 	
 }
