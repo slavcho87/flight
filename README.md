@@ -11,6 +11,7 @@ Once you have created the scheme, you do not have to do anything else. When the 
 Clone the following two repositories in your workspace:
 
 `git clone https://github.com/slavcho87/flight-config`
+
 `git clone https://github.com/slavcho87/flight` 
 
 The master branch carries the most stable version. Access in `https://github.com/slavcho87/flight` repository and import the project as a normal maven project.
@@ -37,4 +38,11 @@ To obtain more information please consult the official documentation of each com
 # Technologies used
 
 In this project the following technologies have been used:
+
+- Java 1.8
+- Liquibase v3.6.0: continuous integration of the database
+- spring boot v1.5.11.RELEASE
+- spring cloud 1.4.3.RELEASE
+- aima-java v3.0.0: framework that contains artificial intelligence algorithms
+- swagger v2.8.0: framework to document rest api
 
