@@ -3,17 +3,19 @@ package com.flight.analist.ai;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-
 import com.flight.analist.itinerary.model.Itinerary;
 import com.flight.analist.itinerary.service.ItineraryService;
-import com.flight.analist.itinerary.service.ItineraryServiceImpl;
-
 import aima.core.agent.Action;
 import aima.core.search.framework.problem.ActionsFunction;
 
+
 public class StateActionsFunction implements ActionsFunction {
 	
-	private ItineraryService itineraryService = new ItineraryServiceImpl();
+	private ItineraryService itineraryService;
+	
+	public StateActionsFunction(ItineraryService itineraryService) {
+		this.itineraryService = itineraryService;
+	}
 
 	@Override
 	public Set<Action> actions(Object state) {

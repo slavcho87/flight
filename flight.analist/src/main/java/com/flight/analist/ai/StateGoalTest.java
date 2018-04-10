@@ -1,7 +1,10 @@
 package com.flight.analist.ai;
 
+import org.springframework.stereotype.Component;
+
 import aima.core.search.framework.problem.GoalTest;
 
+@Component
 public class StateGoalTest implements GoalTest {
 
 	private State destination;

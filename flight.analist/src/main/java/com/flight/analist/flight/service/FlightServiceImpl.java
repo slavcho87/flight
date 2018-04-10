@@ -48,7 +48,7 @@ public class FlightServiceImpl implements FlightService{
 		State destination = new State();
 		destination.setCity(destinationCity);	
 		
-		Problem problem = new Problem(origin, new StateActionsFunction(), new StateResultFunction(), new StateGoalTest(destination));
+		Problem problem = new Problem(origin, new StateActionsFunction(itineraryService), new StateResultFunction(itineraryService), new StateGoalTest(destination));
 		SearchForActions search = new AStarSearch(new GraphSearch(), new TimeHeuristicFuntion());
 		SearchAgent agent = new SearchAgent(problem, search);
 		List<Action> actions = agent.getActions();

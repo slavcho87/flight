@@ -2,14 +2,16 @@ package com.flight.analist.ai;
 
 import com.flight.analist.itinerary.model.Itinerary;
 import com.flight.analist.itinerary.service.ItineraryService;
-import com.flight.analist.itinerary.service.ItineraryServiceImpl;
-
 import aima.core.agent.Action;
 import aima.core.search.framework.problem.ResultFunction;
 
 public class StateResultFunction implements ResultFunction {
 
-	private ItineraryService itineraryService = new ItineraryServiceImpl();
+	private ItineraryService itineraryService;
+	
+	public StateResultFunction(ItineraryService itineraryService) {
+		this.itineraryService = itineraryService;
+	}
 	
 	@Override
 	public Object result(Object s, Action a) {

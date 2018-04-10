@@ -20,8 +20,7 @@ public class ItineraryServiceImpl implements ItineraryService {
 		
 	@Override
 	public List<Itinerary> getItinerary(String cityName) {
-		//String uri = propertiesHandler.getFlightManagerBaseUri()+propertiesHandler.getFlightManagerApi()+propertiesHandler.getFlightManagerCity()+"/"+cityName+"/"+propertiesHandler.getFlightManagerFlight();
-		String uri = "http://localhost:8091/api/city/"+cityName+"/flight";
+		String uri = propertiesHandler.getFlightManagerBaseUri()+propertiesHandler.getFlightManagerApi()+propertiesHandler.getFlightManagerCity()+"/"+cityName+"/"+propertiesHandler.getFlightManagerFlight();
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<ItineraryListDTO> response = restTemplate.getForEntity(uri, ItineraryListDTO.class);
 		
@@ -41,8 +40,7 @@ public class ItineraryServiceImpl implements ItineraryService {
 
 	@Override
 	public Itinerary getById(String cityName, Integer id) {
-		//String uri = propertiesHandler.getFlightManagerBaseUri()+propertiesHandler.getFlightManagerApi()+propertiesHandler.getFlightManagerCity()+"/"+cityName+"/"+propertiesHandler.getFlightManagerFlight()+"/"+id;
-		String uri = "http://localhost:8091/api/city/"+cityName+"/flight/"+id;
+		String uri = propertiesHandler.getFlightManagerBaseUri()+propertiesHandler.getFlightManagerApi()+propertiesHandler.getFlightManagerCity()+"/"+cityName+"/"+propertiesHandler.getFlightManagerFlight()+"/"+id;
 		RestTemplate restTemplate = new RestTemplate();
 		ResponseEntity<ItineraryDTO> response = restTemplate.getForEntity(uri, ItineraryDTO.class);
 

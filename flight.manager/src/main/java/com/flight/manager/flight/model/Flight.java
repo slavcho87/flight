@@ -20,13 +20,13 @@ public class Flight {
 	
 	private Date departureTime;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="departure_city")
 	private City departureCity;
 	
 	private Date arrivalTime;
 	
-	@OneToOne(fetch = FetchType.LAZY)
+	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="arrival_city")
 	private City arrivalCity;
 

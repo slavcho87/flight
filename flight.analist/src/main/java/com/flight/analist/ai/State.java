@@ -1,5 +1,8 @@
 package com.flight.analist.ai;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class State {
 
 	private String city;
